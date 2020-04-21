@@ -1,0 +1,7 @@
+# Only files under src/ will be linted.
+/*
+!src/
+
+# Below are list of files under src/ but shoudln't be linted.
+src/serviceWorker.ts
+src/model/*
