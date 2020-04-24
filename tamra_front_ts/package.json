@@ -22,14 +22,9 @@
   "scripts": {
     "cpenv": "f() { cp .env.${1:-dev} .env; } ; f",
     "start": "f() { yarn cpenv ${1:-dev} && PORT=${PORT:-8888} react-scripts start; } ; f",
-    "build": "f() { yarn cpenv ${1:-dev} && react-scripts build; } ; f",
-    "devtest": "f() { yarn cpenv ${1:-dev} && CI=true react-scripts test; } ; f",
-    "devtestOne": "f() { CI=true react-scripts test --testPathPattern=${1:-App}.test.ts --coverage --collectCoverageFrom=**/${1:-App}.{ts,tsx} --colors; }; f",
     "test": "f() { yarn cpenv ${1:-dev} && yarn lint && yarn devtest; } ; f",
-    "lint": "eslint . --max-warnings 0 --ext .ts,.tsx,.js,.jsx && tsc --noEmit",
-    "format": "eslint . --max-warnings 0 --ext .ts,.tsx,.js,.jsx --fix",
-    "smoke": "yarn lint && yarn devtest && yarn build",
-    "deploy": "f() { yarn install && yarn build ${1:-dev} && aws s3://dashboard-${1:-dev}.playwings.co.kr --delete --region ap-northeast-1 --cache-control max-age=300; } ; f"
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx && tsc --noEmit",
+    "format": "eslint . --ext .ts,.tsx,.js,.jsx --fix"
   },
   "browserslist": {
     "production": [
