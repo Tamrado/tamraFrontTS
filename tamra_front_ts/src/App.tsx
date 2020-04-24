@@ -1,11 +1,10 @@
 import React from 'react'
 import './App.css'
+import Header from 'views/pages/Header'
 
 const App: React.FC = () => {
   return (
-    <div>
-      tamra_front_ts
-    </div>
+    <Header />
   )
 }
 
